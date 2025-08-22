@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, X, Plus, ArrowRight, ChevronDown, Globe, Ship, FileText, Package, Truck, Phone, Mail, MapPin } from 'lucide-react';
+import logoWhite from '../assets/LOGOTIPO BRANCA - LOGMAIS COMEX.png';
+import logisticsPort from '../assets/logistics-port.png';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,14 +14,15 @@ function App() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="fixed top-0 w-full bg-black z-50">
-        <div className="container mx-auto px-6 py-6 flex justify-between items-center">
+        <div className="container mx-auto px-6 py-3 flex justify-between items-center">
           <div className="flex items-center">
-            <div className="text-white text-2xl font-bold tracking-wider">
-              LOG<Plus size={20} className="inline mx-1" />MAIS
-            </div>
-            <div className="hidden md:block ml-4 text-white/60 text-sm uppercase tracking-widest">
-              Soluções em Comércio Exterior
-            </div>
+             <img
+                src={logoWhite}
+                alt="Logo Log+Mais"
+                className="w-28 md:w-32 mb-1 drop-shadow-2xl"
+                style={{ maxWidth: '100%', height: 'auto' }}
+                
+              />
           </div>
           
           {/* Desktop Navigation */}
@@ -52,52 +55,84 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section id="inicio" className="pt-20 min-h-screen bg-[#E5642E] relative overflow-hidden">
-        <div className="container mx-auto px-6 h-screen flex items-center">
-          <div className="grid md:grid-cols-2 gap-12 items-center w-full">
-            <div className="text-left">
-              <div className="text-white text-7xl md:text-9xl font-bold mb-4 tracking-tight">
-                LOG<Plus size={60} className="inline mx-2" />MAIS
-              </div>
-              <p className="text-white/90 text-xl md:text-2xl mb-8 uppercase tracking-widest font-light">
-                Soluções em Comércio Exterior
-              </p>
-              <div className="bg-black/20 backdrop-blur-sm rounded-full px-6 py-3 inline-block mb-8">
-                <p className="text-white text-lg font-medium">
-                  +25 anos no Comércio Exterior
-                </p>
-              </div>
-              <p className="text-white text-2xl md:text-3xl font-bold italic mb-8">
+      <section id="inicio" className="pt-20 min-h-screen relative overflow-hidden">
+        {/* Background com degradê bem visível */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35] via-[#E5642E] to-[#CC4A1B]"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#B8481A] via-transparent to-[#FF8A4A]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#D4571F]/60 via-transparent to-[#FF6B35]/40"></div>
+        
+        {/* Elementos decorativos de logística */}
+        <div className="absolute inset-0 opacity-20">
+          {/* Formas geométricas simulando containers e infraestrutura */}
+          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/30 to-transparent"></div>
+          <div className="absolute top-20 right-10 w-20 h-12 bg-white/10 rounded transform rotate-12"></div>
+          <div className="absolute top-32 right-20 w-16 h-8 bg-white/15 rounded transform -rotate-6"></div>
+          <div className="absolute bottom-20 right-16 w-12 h-16 bg-black/20 rounded-sm"></div>
+          <div className="absolute bottom-20 right-32 w-12 h-16 bg-black/15 rounded-sm"></div>
+          <div className="absolute bottom-20 right-48 w-12 h-16 bg-black/25 rounded-sm"></div>
+        </div>
+        
+        <div className="relative z-10 container mx-auto px-8 md:px-16 h-screen flex items-center">
+          <div className="grid md:grid-cols-2 gap-20 md:gap-24 items-center w-full">
+            {/* Coluna da esquerda - Conteúdo principal */}
+            <div className="text-left pl-4 md:pl-8">{/* Adicionando padding lateral */}
+              {/* Logo oficial */}
+              <img
+                src={logoWhite}
+                alt="Logo Log+Mais"
+                className="w-90 md:w-120 mb-1 drop-shadow-2xl"
+                style={{ maxWidth: '100%', height: 'auto' }}
+                
+              />
+              
+              {/* Slogan principal */}
+              <h1 className="text-white text-3xl md:text-4xl font-bold italic mb-6 leading-tight">
                 A empresa que realmente importa para você!
-              </p>
+              </h1>
+              
+
+              {/* Serviços sutis embaixo da logo */}
+              <div className="mb-6">
+                <div className="flex flex-wrap gap-2 justify-start">
+                  <span className="text-white/80 text-sm bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
+                    Importação
+                  </span>
+                  <span className="text-white/80 text-sm bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
+                    Exportação
+                  </span>
+                  <span className="text-white/80 text-sm bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
+                    Assessoria Aduaneira
+                  </span>
+                  <span className="text-white/80 text-sm bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
+                    Agenciamento
+                  </span>
+                  <span className="text-white/80 text-sm bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
+                    Transporte
+                  </span>
+                </div>
+              </div>
+              
+        
+              
             </div>
             
-            {/* Logistics Illustration */}
-            <div className="hidden md:block relative">
-              <div className="w-full h-96 relative bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg overflow-hidden">
-                {/* Sky with sunset */}
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-yellow-200 via-orange-300 to-orange-400"></div>
+            {/* Coluna da direita - Imagem de logística */}
+            <div className="hidden md:block pr-4 md:pr-8">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={logisticsPort}
+                  alt="Logística - Porto, Aviões, Navios e Caminhões"
+                  className="w-full h-96 object-cover"
+                  style={{ objectPosition: 'center' }}
+                />
+                {/* Overlay sutil para melhor integração */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 
-                {/* Clouds */}
-                <div className="absolute top-8 right-12 w-20 h-12 bg-white/80 rounded-full"></div>
-                <div className="absolute top-6 right-8 w-16 h-10 bg-white/60 rounded-full"></div>
-                
-                {/* Ship silhouette */}
-                <div className="absolute bottom-20 left-8 w-32 h-16">
-                  <div className="w-full h-8 bg-black/60 rounded-t-lg"></div>
-                  <div className="w-4 h-12 bg-black/60 absolute left-1/2 -top-4 transform -translate-x-1/2"></div>
-                </div>
-                
-                {/* Airplane silhouette */}
-                <div className="absolute top-16 left-16 w-16 h-4 bg-black/40 transform rotate-12">
-                  <div className="w-4 h-8 bg-black/40 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                </div>
-                
-                {/* Containers */}
-                <div className="absolute bottom-8 right-12 space-x-2 flex">
-                  <div className="w-6 h-8 bg-red-600"></div>
-                  <div className="w-6 h-8 bg-blue-600"></div>
-                  <div className="w-6 h-8 bg-green-600"></div>
+                {/* Tag no canto inferior */}
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                  <p className="text-[#E5642E] text-sm font-bold uppercase tracking-wider">
+                    Soluções em Comércio Exterior
+                  </p>
                 </div>
               </div>
             </div>
